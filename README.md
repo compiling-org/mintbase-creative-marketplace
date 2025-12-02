@@ -124,4 +124,29 @@ The gap between current state and production readiness is enormous - we need to 
 - Social features and creator verification
 - Integration with Mintbase's existing ecosystem
 
-**Reality Check**: 30% complete, 0% Mintbase compatible, needs major development effort to reach basic functionality.
+**Reality Check**: 30% complete, 0% Mintbase compatible, needs major development effort to reach basic functionality.### Architecture Diagram
+
+```mermaid
+graph LR
+    UI[Marketplace UI] --> MM[Marketplace Manager]
+    MM --> CM[CreativeMarketplace Contract]
+    CM --> NEAR[NEAR Storage]
+    CM --> IPFS[IPFS Metadata]
+```
+
+### Component Flow
+
+```mermaid
+graph TB
+    subgraph Client
+        UI[React UI]
+        EM[Emotion Analyzer]
+    end
+    subgraph Blockchain
+        CM[Marketplace Contract]
+        DAO[DAO Governance]
+    end
+    UI --> EM
+    EM --> CM
+    CM --> DAO
+```
